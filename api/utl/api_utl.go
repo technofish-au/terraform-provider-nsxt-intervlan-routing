@@ -1,0 +1,50 @@
+//nolint:revive
+package api
+
+import "github.com/vmware/vsphere-automation-sdk-go/runtime/bindings"
+
+type ClientType int
+
+const (
+	DefaultOrgID = "default"
+	Global       = 0
+	Local        = 1
+	Multitenancy = 2
+	VPC          = 3
+)
+
+type SessionContext struct {
+	ClientType ClientType
+	ProjectID  string
+	VPCID      string
+	FromGlobal bool
+}
+type ClientContext struct {
+	Client     interface{}
+	ClientType ClientType
+	ProjectID  string
+	VPCID      string
+}
+
+type SessionContextSpec struct {
+	IsRequired          bool
+	IsComputed          bool
+	IsVpc               bool
+	AllowDefaultProject bool
+	FromGlobal          bool
+}
+
+func ConvertModelBindingType(obj interface{}, sourceType bindings.BindingType, destType bindings.BindingType) (interface{}, error) {
+	converter := bindings.NewTypeConverter()
+	dataValue, err := converter.ConvertToVapi(obj, sourceType)
+	if err != nil {
+		return nil, err[0]
+	}
+
+	gmObj, err := converter.ConvertToGolang(dataValue, destType)
+	if err != nil {
+		return nil, err[0]
+	}
+
+	return gmObj, nil
+}

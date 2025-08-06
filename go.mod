@@ -1,20 +1,33 @@
-module github.com/hashicorp/terraform-provider-scaffolding-framework
+module github.com/ianbrown78/terraform-provider-nsxt-intervlan-routing
 
 go 1.23.7
 
 require (
+	github.com/google/uuid v1.6.0
 	github.com/hashicorp/terraform-plugin-framework v1.15.1
 	github.com/hashicorp/terraform-plugin-go v0.28.0
 	github.com/hashicorp/terraform-plugin-log v0.9.0
 	github.com/hashicorp/terraform-plugin-testing v1.13.2
+	github.com/hashicorp/terraform-provider-scaffolding-framework v0.0.0-20250801112927-07b4fe567f88
+	github.com/vmware/go-vmware-nsxt v0.0.0-20230223012718-d31b8a1ca05e
+	github.com/vmware/vsphere-automation-sdk-go/lib v0.8.0
+	github.com/vmware/vsphere-automation-sdk-go/runtime v0.8.0
+	github.com/vmware/vsphere-automation-sdk-go/services/nsxt v0.12.0
+	github.com/vmware/vsphere-automation-sdk-go/services/nsxt-gm v0.9.0
+	github.com/vmware/vsphere-automation-sdk-go/services/nsxt-mp v0.6.0
+	golang.org/x/exp v0.0.0-20250718183923-645b1fa84792
 )
 
 require (
 	github.com/ProtonMail/go-crypto v1.1.6 // indirect
 	github.com/agext/levenshtein v1.2.2 // indirect
+	github.com/antihax/optional v1.0.0 // indirect
 	github.com/apparentlymart/go-textseg/v15 v15.0.0 // indirect
+	github.com/beevik/etree v1.1.0 // indirect
 	github.com/cloudflare/circl v1.6.1 // indirect
 	github.com/fatih/color v1.16.0 // indirect
+	github.com/gibson042/canonicaljson-go v1.0.3 // indirect
+	github.com/golang-jwt/jwt/v4 v4.3.0 // indirect
 	github.com/golang/protobuf v1.5.4 // indirect
 	github.com/google/go-cmp v0.7.0 // indirect
 	github.com/hashicorp/errwrap v1.1.0 // indirect
@@ -50,13 +63,14 @@ require (
 	github.com/vmihailenco/msgpack/v5 v5.4.1 // indirect
 	github.com/vmihailenco/tagparser/v2 v2.0.0 // indirect
 	github.com/zclconf/go-cty v1.16.3 // indirect
-	golang.org/x/crypto v0.39.0 // indirect
-	golang.org/x/mod v0.25.0 // indirect
-	golang.org/x/net v0.40.0 // indirect
-	golang.org/x/sync v0.15.0 // indirect
-	golang.org/x/sys v0.33.0 // indirect
-	golang.org/x/text v0.26.0 // indirect
-	golang.org/x/tools v0.33.0 // indirect
+	golang.org/x/crypto v0.40.0 // indirect
+	golang.org/x/mod v0.26.0 // indirect
+	golang.org/x/net v0.42.0 // indirect
+	golang.org/x/oauth2 v0.26.0 // indirect
+	golang.org/x/sync v0.16.0 // indirect
+	golang.org/x/sys v0.34.0 // indirect
+	golang.org/x/text v0.27.0 // indirect
+	golang.org/x/tools v0.35.0 // indirect
 	google.golang.org/appengine v1.6.8 // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20250218202821-56aae31c358a // indirect
 	google.golang.org/grpc v1.72.1 // indirect
