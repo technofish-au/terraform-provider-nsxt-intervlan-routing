@@ -12,7 +12,7 @@ import (
 	model0 "github.com/vmware/vsphere-automation-sdk-go/services/nsxt/model"
 	client2 "github.com/vmware/vsphere-automation-sdk-go/services/nsxt/orgs/projects/infra"
 
-	utl "github.com/vmware/terraform-provider-nsxt/api/utl"
+	utl "github.com/ianbrown78/terraform-provider-nsxt-intervlan-routing/api/utl"
 )
 
 type SegmentClientContext utl.ClientContext
