@@ -12,8 +12,6 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/technofish-au/terraform-provider-nsxt-intervlan-routing/internal/provider/util"
-
 	"github.com/hashicorp/terraform-plugin-framework/provider/schema"
 	// "github.com/hashicorp/terraform-plugin-sdk/v2/terraform"
 	api "github.com/vmware/go-vmware-nsxt"
