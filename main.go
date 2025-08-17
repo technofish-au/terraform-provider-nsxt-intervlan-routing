@@ -9,8 +9,7 @@ import (
 	"log"
 
 	"github.com/hashicorp/terraform-plugin-framework/providerserver"
-	"github.com/hashicorp/terraform-provider-nsxt-intervlan-routing/internal/provider"
-	"github.com/vmware/terraform-provider-nsxt/nsxt"
+	"github.com/technofish-au/terraform-provider-nsxt-intervlan-routing/internal/provider"
 )
 
 var (
@@ -32,7 +31,7 @@ func main() {
 		// TODO: Update this string with the published name of your provider.
 		// Also update the tfplugindocs generate command to either remove the
 		// -provider-name flag or set its value to the updated provider name.
-		Address: "registry.terraform.io/ianbrown78/nsxt-intervlan-routing",
+		Address: "registry.terraform.io/technofish-au/nsxt-intervlan-routing",
 		Debug:   debug,
 	}
 
