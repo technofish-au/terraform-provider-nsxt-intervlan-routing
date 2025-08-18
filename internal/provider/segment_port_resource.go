@@ -19,7 +19,6 @@ import (
 var (
 	_ resource.Resource              = &segmentPortResource{}
 	_ resource.ResourceWithConfigure = &segmentPortResource{}
-	//_ resource.ResourceWithImportState = &segmentPortResource{}
 )
 
 func NewSegmentPortResource() resource.Resource {

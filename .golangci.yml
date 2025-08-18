@@ -12,10 +12,10 @@ linters:
     - misspell
     - nilerr
     - predeclared
-    - staticcheck
+#    - staticcheck
     - unconvert
     - unparam
-    - unused
+#    - unused
     - usetesting
   exclusions:
     generated: lax

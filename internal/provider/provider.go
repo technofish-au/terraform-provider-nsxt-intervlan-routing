@@ -26,7 +26,7 @@ import (
 // Ensure NsxtIntervlanRoutingProvider satisfies various provider interfaces.
 var _ provider.Provider = &NsxtIntervlanRoutingProvider{}
 
-// var _ provider.ProviderWithFunctions = &NsxtIntervlanRoutingProvider{}
+// var _ provider.ProviderWithFunctions = &NsxtIntervlanRoutingProvider{}.
 var Client http.Client
 var Auth AuthResponse
 var Host string
@@ -167,7 +167,7 @@ func (p *NsxtIntervlanRoutingProvider) Configure(ctx context.Context, req provid
 				"Set the insecure value in the configuration or use the NSXT_INSECURE environment variable. "+
 				"If either is already set, ensure the value is not empty.",
 		)
-		insecure = "false"
+		//insecure = "false"
 	}
 	if hostname == "" {
 		resp.Diagnostics.AddAttributeWarning(
