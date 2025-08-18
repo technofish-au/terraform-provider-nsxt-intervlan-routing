@@ -2,7 +2,7 @@
 schema_version = 1
 
 project {
-  license        = "GPL-2.0"
+  license        = "GPL-2.0-or-later"
   copyright_year = 2025
 
   header_ignore = [
