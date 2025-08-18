@@ -83,7 +83,7 @@ func (r *segmentPortResource) Schema(_ context.Context, _ resource.SchemaRequest
 				Required:            true,
 				NestedObject: schema.NestedAttributeObject{
 					Attributes: map[string]schema.Attribute{
-						"address_bindings": schema.SetNestedAttribute{
+						"address_bindings": schema.ListNestedAttribute{
 							Description:         "List of IP address bindings. Only required when creating a CHILD port.",
 							MarkdownDescription: "List of IP address bindings. Only required when creating a CHILD port.",
 							Optional:            true,
