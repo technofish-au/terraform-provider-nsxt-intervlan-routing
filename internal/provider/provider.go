@@ -26,7 +26,6 @@ import (
 // Ensure NsxtIntervlanRoutingProvider satisfies various provider interfaces.
 var _ provider.Provider = &NsxtIntervlanRoutingProvider{}
 
-// var _ provider.ProviderWithFunctions = &NsxtIntervlanRoutingProvider{}.
 var Client http.Client
 var Auth AuthResponse
 var Host string
@@ -306,24 +305,12 @@ func convertBodyToMap(bodyString string) AuthResponse {
 
 func (p *NsxtIntervlanRoutingProvider) Resources(ctx context.Context) []func() resource.Resource {
 	return []func() resource.Resource{
-		//NewExampleResource,
+		NewSegmentPortResource,
 	}
 }
-
-//func (p *NsxtIntervlanRoutingProvider) EphemeralResources(ctx context.Context) []func() ephemeral.EphemeralResource {
-//	return []func() ephemeral.EphemeralResource{
-//		NewExampleEphemeralResource,
-//	}
-//}
 
 func (p *NsxtIntervlanRoutingProvider) DataSources(ctx context.Context) []func() datasource.DataSource {
 	return []func() datasource.DataSource{
 		NewSegmentPortsDataSource,
 	}
 }
-
-//func (p *NsxtIntervlanRoutingProvider) Functions(ctx context.Context) []func() function.Function {
-//	return []func() function.Function{
-//		NewExampleFunction,
-//	}
-//}
