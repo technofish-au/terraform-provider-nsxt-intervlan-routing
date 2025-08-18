@@ -1,3 +1,6 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: GPL-2.0-or-later
+
 package client
 
 import (

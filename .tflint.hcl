@@ -1,3 +1,6 @@
+# Copyright (c) HashiCorp, Inc.
+# SPDX-License-Identifier: GPL-2.0-or-later
+
 config {
   format = "compact"
   plugin_dir = "~/.tflint.d/plugins"
