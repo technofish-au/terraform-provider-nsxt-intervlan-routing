@@ -3,7 +3,7 @@ resource "nsxt_intervlan_routing_segment_port" "parent_example" {
     port_id = "a274ac51-88f5-491f-a46f-840d409ce82f"
     segment_port = {
         admin_state = "UP"
-        attachment {
+        attachment = {
             id = "9765bf41-9725-4714-977e-7f7395920de2"
             traffic_tag = "1000"
             type = "PARENT"
@@ -25,7 +25,7 @@ resource "nsxt_intervlan_routing_segment_port" "child_example" {
             vlan_id = "1001"
         }
         admin_state = "UP"
-        attachment {
+        attachment = {
             context_id = "9765bf41-9725-4714-977e-7f7395920de2"
             traffic_tag = "1001"
             app_id = "Segment1001"
