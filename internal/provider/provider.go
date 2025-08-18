@@ -58,7 +58,7 @@ type NsxtIntervlanRoutingProvider struct {
 
 // Metadata returns the provider type name.
 func (p *NsxtIntervlanRoutingProvider) Metadata(ctx context.Context, req provider.MetadataRequest, resp *provider.MetadataResponse) {
-	resp.TypeName = "nsxt_intervlan_routing"
+	resp.TypeName = "nsxt-intervlan-routing"
 	resp.Version = p.version
 }
 
