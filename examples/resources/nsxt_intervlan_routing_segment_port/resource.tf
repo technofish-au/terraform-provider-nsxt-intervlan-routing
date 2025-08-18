@@ -1,23 +1,3 @@
-terraform {
-    required_providers {
-        nsxt_intervlan_routing = {
-            source = "technofish-au/nsxt-intervlan-routing"
-        }
-    }
-}
-
-provider "nsxt-intervlan-routing" {
-  nsxt_host = "127.0.0.1"
-  nsxt_insecure = true
-  nsxt_username = "admin"
-  nsxt_password = "password"
-}
-
-data "nsxt_intervlan_routing_segment_ports" "example" {
-    segment_id = ""
-    segment_ports = {}
-}
-
 resource "nsxt_intervlan_routing_segment_port" "parent_example" {
     segment_id = "4d4c0f0a-6c5 0-420b-90f1-68fb7585cda4"
     port_id = "a274ac51-88f5-491f-a46f-840d409ce82f"
