@@ -19,7 +19,7 @@ Manage a segment port.
 
 - `port_id` (String) Identifier for this port.
 - `segment_id` (String) Identifier for this segment.
-- `segment_port` (Attributes Set) The segment port definition (see [below for nested schema](#nestedatt--segment_port))
+- `segment_port` (Attributes) The segment port definition (see [below for nested schema](#nestedatt--segment_port))
 
 <a id="nestedatt--segment_port"></a>
 ### Nested Schema for `segment_port`
