@@ -21,10 +21,10 @@ terraform {
 }
 
 provider "nsxt-intervlan-routing" {
-  nsxt_host     = "127.0.0.1"
-  nsxt_insecure = true
-  nsxt_username = "admin"
-  nsxt_password = "password"
+  host           = "127.0.0.1"
+  allow_insecure = true
+  username       = "admin"
+  password       = "password"
 }
 
 data "nsxt_intervlan_routing_segment_ports" "example" {
