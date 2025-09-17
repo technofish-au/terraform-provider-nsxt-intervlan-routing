@@ -27,7 +27,7 @@ Manage a segment port.
 Required:
 
 - `admin_state` (String) Admin state of the segment port. Can only be UP or DOWN values.
-- `attachment` (Attributes Set) Attachment object definition (see [below for nested schema](#nestedatt--segment_port--attachment))
+- `attachment` (Attributes) Attachment object definition (see [below for nested schema](#nestedatt--segment_port--attachment))
 - `display_name` (String) Display name of segment port
 - `id` (String) Id of segment port. Can be the same as display_name.
 - `resource_type` (String) Resource type of segment port. Can only be set to 'SegmentPort'
