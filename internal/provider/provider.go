@@ -212,10 +212,11 @@ func (p *NsxtIntervlanRoutingProvider) Configure(ctx context.Context, req provid
 	Host = ""
 	u, err := url.Parse(hostname)
 	if err != nil {
-		fmt.Printf("Error parsing URL '%s': %v\n", hostname, err)
+		resp.Diagnostics.AddError("Error parsing URL",
+			fmt.Sprintf("URL provided: '%s': %v\n", hostname, err))
 	}
 	if u.Scheme != "https" {
-		Host = "https://" + u.Host
+		Host = "https://" + u.Hostname()
 	}
 
 	creds := url.Values{}
