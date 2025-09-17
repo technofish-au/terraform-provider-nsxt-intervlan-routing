@@ -205,11 +205,11 @@ func (p *NsxtIntervlanRoutingProvider) Configure(ctx context.Context, req provid
 	tflog.Debug(ctx, "Creating NSX-T API client")
 
 	// Create the configuration for the NSX-T API Client
-	//is_insecure, _ := strconv.ParseBool(insecure)
+	isInsecure, _ := strconv.ParseBool(insecure)
 	Host = ""
-	if !strings.HasPrefix(hostname, "http://") && insecure == "false" {
+	if !strings.HasPrefix(hostname, "http://") && !isInsecure {
 		Host = "https://" + hostname
-	} else if !strings.HasPrefix(hostname, "http://") && insecure == "true" {
+	} else if !strings.HasPrefix(hostname, "http://") && isInsecure {
 		Host = "http://" + hostname
 	}
 
