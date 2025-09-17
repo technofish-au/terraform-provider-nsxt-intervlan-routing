@@ -5,6 +5,7 @@ package provider
 
 import (
 	"context"
+	"crypto/tls"
 	"io"
 	"net/http"
 	"net/url"
@@ -207,10 +208,8 @@ func (p *NsxtIntervlanRoutingProvider) Configure(ctx context.Context, req provid
 	// Create the configuration for the NSX-T API Client
 	isInsecure, _ := strconv.ParseBool(insecure)
 	Host = ""
-	if !strings.HasPrefix(hostname, "http://") && !isInsecure {
+	if !strings.HasPrefix(hostname, "https://") || !strings.HasPrefix(hostname, "http://") {
 		Host = "https://" + hostname
-	} else if !strings.HasPrefix(hostname, "http://") && isInsecure {
-		Host = "http://" + hostname
 	}
 
 	creds := url.Values{}
@@ -219,8 +218,15 @@ func (p *NsxtIntervlanRoutingProvider) Configure(ctx context.Context, req provid
 	enc_creds := creds.Encode()
 
 	// Example client configuration for data sources and resources
+	tr := &http.Transport{}
+	if isInsecure {
+		tr = &http.Transport{
+			TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+		}
+	}
 	Client := &http.Client{
-		Timeout: 10 * time.Second,
+		Transport: tr,
+		Timeout:   10 * time.Second,
 	}
 	request, err := http.NewRequest(
 		"POST",
