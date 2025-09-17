@@ -208,15 +208,12 @@ func (p *NsxtIntervlanRoutingProvider) Configure(ctx context.Context, req provid
 
 	// Create the configuration for the NSX-T API Client
 	isInsecure, _ := strconv.ParseBool(insecure)
+	resp.Diagnostics.AddWarning("Hostname provided: ", hostname)
 	fmt.Println(hostname)
 	Host = ""
-	u, err := url.Parse(hostname)
-	if err != nil {
-		resp.Diagnostics.AddError("Error parsing URL",
-			fmt.Sprintf("URL provided: '%s': %v\n", hostname, err))
-	}
-	if u.Scheme != "https" {
-		Host = "https://" + u.Hostname()
+	if !strings.HasPrefix(hostname, "https://") ||
+		!strings.HasPrefix(hostname, "http://") {
+		Host = "https://" + hostname
 	}
 
 	creds := url.Values{}
