@@ -111,37 +111,35 @@ func (r *segmentPortResource) Schema(_ context.Context, _ resource.SchemaRequest
 						MarkdownDescription: "Admin state of the segment port. Can only be UP or DOWN values.",
 						Required:            true,
 					},
-					"attachment": schema.SetNestedAttribute{
+					"attachment": schema.SingleNestedAttribute{
 						Description:         "Attachment object definition",
 						MarkdownDescription: "Attachment object definition",
 						Required:            true,
-						NestedObject: schema.NestedAttributeObject{
-							Attributes: map[string]schema.Attribute{
-								"id": schema.StringAttribute{
-									Description:         "VIF UUID in NSX. Required if type is PARENT.",
-									MarkdownDescription: "VIF UUID in NSX. Required if type is PARENT.",
-									Required:            true,
-								},
-								"context_id": schema.StringAttribute{
-									Description:         "Attachment UUID of the PARENT port. Only required when type is CHILD.",
-									MarkdownDescription: "Attachment UUID of the PARENT port. Only required when type is CHILD.",
-									Optional:            true,
-								},
-								"traffic_tag": schema.StringAttribute{
-									Description:         "VLAN ID to tag traffic with. Only required when type is CHILD.",
-									MarkdownDescription: "VLAN ID to tag traffic with. Only required when type is CHILD.",
-									Optional:            true,
-								},
-								"app_id": schema.StringAttribute{
-									Description:         "Application ID associated with this port. Can be the same as the display name. Only required when type is CHILD.",
-									MarkdownDescription: "Application ID associated with this port. Can be the same as the display name. Only required when type is CHILD.",
-									Optional:            true,
-								},
-								"type": schema.StringAttribute{
-									Description:         "Type of attachment. Case sensitive. Can be either PARENT or CHILD.",
-									MarkdownDescription: "Type of attachment. Case sensitive. Can be either PARENT or CHILD.",
-									Required:            true,
-								},
+						Attributes: map[string]schema.Attribute{
+							"id": schema.StringAttribute{
+								Description:         "VIF UUID in NSX. Required if type is PARENT.",
+								MarkdownDescription: "VIF UUID in NSX. Required if type is PARENT.",
+								Required:            true,
+							},
+							"context_id": schema.StringAttribute{
+								Description:         "Attachment UUID of the PARENT port. Only required when type is CHILD.",
+								MarkdownDescription: "Attachment UUID of the PARENT port. Only required when type is CHILD.",
+								Optional:            true,
+							},
+							"traffic_tag": schema.StringAttribute{
+								Description:         "VLAN ID to tag traffic with. Only required when type is CHILD.",
+								MarkdownDescription: "VLAN ID to tag traffic with. Only required when type is CHILD.",
+								Optional:            true,
+							},
+							"app_id": schema.StringAttribute{
+								Description:         "Application ID associated with this port. Can be the same as the display name. Only required when type is CHILD.",
+								MarkdownDescription: "Application ID associated with this port. Can be the same as the display name. Only required when type is CHILD.",
+								Optional:            true,
+							},
+							"type": schema.StringAttribute{
+								Description:         "Type of attachment. Case sensitive. Can be either PARENT or CHILD.",
+								MarkdownDescription: "Type of attachment. Case sensitive. Can be either PARENT or CHILD.",
+								Required:            true,
 							},
 						},
 					},
