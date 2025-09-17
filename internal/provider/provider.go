@@ -206,7 +206,12 @@ func (p *NsxtIntervlanRoutingProvider) Configure(ctx context.Context, req provid
 
 	// Create the configuration for the NSX-T API Client
 	//is_insecure, _ := strconv.ParseBool(insecure)
-	Host = hostname
+	Host = ""
+	if !strings.HasPrefix(hostname, "http://") && insecure == "false" {
+		Host = "https://" + hostname
+	} else if !strings.HasPrefix(hostname, "http://") && insecure == "true" {
+		Host = "http://" + hostname
+	}
 
 	creds := url.Values{}
 	creds.Set("j_username", username)
@@ -219,7 +224,7 @@ func (p *NsxtIntervlanRoutingProvider) Configure(ctx context.Context, req provid
 	}
 	request, err := http.NewRequest(
 		"POST",
-		hostname+"/api/session/create",
+		Host+"/api/session/create",
 		strings.NewReader(enc_creds))
 	if err != nil {
 		resp.Diagnostics.AddError(
