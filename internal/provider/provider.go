@@ -63,10 +63,10 @@ func (p *NsxtIntervlanRoutingProvider) Metadata(ctx context.Context, req provide
 
 // NsxtIntervlanRoutingProviderModel describes the provider data model.
 type NsxtIntervlanRoutingProviderModel struct {
-	NsxtInsecure types.Bool   `tfsdk:"nsxt_insecure"`
-	NsxtUsername types.String `tfsdk:"nsxt_username"`
-	NsxtPassword types.String `tfsdk:"nsxt_password"`
-	NsxtHost     types.String `tfsdk:"nsxt_host"`
+	NsxtInsecure types.Bool   `tfsdk:"allow_insecure"`
+	NsxtUsername types.String `tfsdk:"username"`
+	NsxtPassword types.String `tfsdk:"password"`
+	NsxtHost     types.String `tfsdk:"host"`
 }
 
 func (p *NsxtIntervlanRoutingProvider) Schema(ctx context.Context, req provider.SchemaRequest, resp *provider.SchemaResponse) {
@@ -160,7 +160,7 @@ func (p *NsxtIntervlanRoutingProvider) Configure(ctx context.Context, req provid
 
 	if insecure == "" {
 		resp.Diagnostics.AddAttributeWarning(
-			path.Root("insecure"),
+			path.Root("allow_insecure"),
 			"Missing NSX-T Manager API Insecure (using default value: false)",
 			"The provider is using a default value as there is a missing or empty value for the NSX-T Manager API insecure. "+
 				"Set the insecure value in the configuration or use the NSXT_INSECURE environment variable. "+
